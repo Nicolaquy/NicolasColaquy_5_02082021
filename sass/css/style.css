@@ -6,10 +6,6 @@
   color: black;
 }
 
-body {
-  overflow-x: hidden;
-}
-
 /************* Header ************/
 header, footer {
   background-color: #F2E8F0;
@@ -89,6 +85,13 @@ header .burger div {
 }
 
 /************* Cameras ************/
+h1 {
+  margin: 100px auto 50px auto;
+  font-size: 40px;
+  text-align: center;
+  padding: 0 20px;
+}
+
 #results {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -99,11 +102,14 @@ header .burger div {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #results .card {
   background-color: #F2E8F0;
-  margin: 20px;
+  margin: 20px 20px;
   border-radius: 5px;
   -webkit-box-shadow: 0 2px 3px 1px rgba(196, 196, 196, 0.541);
           box-shadow: 0 2px 3px 1px rgba(196, 196, 196, 0.541);
@@ -112,9 +118,11 @@ header .burger div {
 }
 
 #results .card .camera-image {
-  width: 300px;
+  width: 100%;
   height: 200px;
   border-radius: 5px 5px 0 0;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #results .card .camera-info {
@@ -157,7 +165,8 @@ footer {
   }
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 750px) {
+  /************* header ************/
   header {
     padding-bottom: 30px;
   }
@@ -204,8 +213,8 @@ footer {
   header .nav-links li {
     margin: 10px;
     opacity: 0;
-    -webkit-transition: opacity 0.1s ease-in;
-    transition: opacity 0.1s ease-in;
+    -webkit-transition: opacity 0.15s ease-in;
+    transition: opacity 0.15s ease-in;
   }
   header .nav-links li .textMenu {
     display: inherit;
@@ -218,6 +227,12 @@ footer {
     opacity: 1;
     -webkit-transition: opacity 0.7s ease-in 0.15s;
     transition: opacity 0.7s ease-in 0.15s;
+  }
+  /************* Cameras ************/
+  #results .card {
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
   }
 }
 /*# sourceMappingURL=style.css.map */
