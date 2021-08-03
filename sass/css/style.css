@@ -1,0 +1,223 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/************* Header ************/
+header, footer {
+  background-color: #F2E8F0;
+  position: relative;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 80px;
+  z-index: 10;
+}
+
+header img {
+  margin-top: 10px;
+}
+
+header #search {
+  margin-top: 27px;
+  height: 30px;
+  width: 45%;
+}
+
+header .burger {
+  display: none;
+  margin: 15px;
+}
+
+header .burger div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.toggle .line1 {
+  -webkit-transform: rotate(-45deg) translate(-5px, 6px);
+          transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  -webkit-transform: rotate(45deg) translate(-5px, -6px);
+          transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 32px 0px 0px 0px;
+}
+
+.nav-links li {
+  font-size: 20px;
+  margin-right: 50px;
+}
+
+/************* Cameras ************/
+#results {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#results .card {
+  background-color: #F2E8F0;
+  margin: 20px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 3px 1px rgba(196, 196, 196, 0.541);
+          box-shadow: 0 2px 3px 1px rgba(196, 196, 196, 0.541);
+  height: 420px;
+  width: 300px;
+}
+
+#results .card .camera-image {
+  width: 300px;
+  height: 200px;
+  border-radius: 5px 5px 0 0;
+}
+
+#results .card .camera-info {
+  text-align: center;
+}
+
+#results .card .camera-info .camera-name {
+  font-size: 18px;
+  color: white;
+  background-color: black;
+  padding: 10px;
+  margin: -5px 0 20px 0;
+}
+
+#results .card .camera-info .camera-price {
+  font-size: 20px;
+  margin: 10px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+#results .card .camera-info .btn {
+  color: white;
+  background-color: black;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/************* Footer ************/
+footer {
+  padding: 20px;
+  font-size: 18px;
+  text-align: center;
+}
+
+/************* Responsive ************/
+@media only screen and (max-width: 1005px) {
+  .textMenu {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  header {
+    padding-bottom: 30px;
+  }
+  header .logo {
+    position: relative;
+    top: -10px;
+  }
+  header #search {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    width: 60%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  header .burger {
+    display: block;
+    cursor: pointer;
+  }
+  header .nav-links {
+    top: 40px;
+    position: absolute;
+    left: 0;
+    -webkit-transform: translateY(-190%);
+            transform: translateY(-190%);
+    -webkit-transition: -webkit-transform 0.3s ease-in;
+    transition: -webkit-transform 0.3s ease-in;
+    transition: transform 0.3s ease-in;
+    transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: #F2E8F0;
+    width: 100%;
+    z-index: -1;
+  }
+  header .nav-links li {
+    margin: 10px;
+    opacity: 0;
+    -webkit-transition: opacity 0.1s ease-in;
+    transition: opacity 0.1s ease-in;
+  }
+  header .nav-links li .textMenu {
+    display: inherit;
+  }
+  header .nav-active {
+    -webkit-transform: translateY(40%);
+            transform: translateY(40%);
+  }
+  header .nav-active li {
+    opacity: 1;
+    -webkit-transition: opacity 0.7s ease-in 0.15s;
+    transition: opacity 0.7s ease-in 0.15s;
+  }
+}
+/*# sourceMappingURL=style.css.map */
