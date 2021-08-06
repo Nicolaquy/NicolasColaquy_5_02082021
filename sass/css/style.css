@@ -8,7 +8,8 @@
 
 /************* Header ************/
 header, footer {
-  background-color: #F2E8F0;
+  background: -webkit-gradient(linear, left top, right top, from(#f2e8f0), color-stop(62%, #f2e8f0), color-stop(73%, #aaa8ad), color-stop(95%, #444244), to(#2B2929));
+  background: linear-gradient(0.25turn, #f2e8f0 0%, #f2e8f0 62%, #aaa8ad 73%, #444244 95%, #2B2929 100%);
   position: relative;
 }
 
@@ -23,7 +24,7 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-bottom: 80px;
+  margin-bottom: 120px;
   z-index: 10;
 }
 
@@ -32,7 +33,7 @@ header img {
 }
 
 header #search {
-  margin-top: 27px;
+  margin: 27px 5px 0px 5px;
   height: 30px;
   width: 45%;
 }
@@ -45,7 +46,7 @@ header .burger {
 header .burger div {
   width: 25px;
   height: 3px;
-  background-color: black;
+  background-color: #fff;
   margin: 5px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -66,6 +67,7 @@ header .burger div {
 }
 
 .nav-links {
+  border: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -76,12 +78,18 @@ header .burger div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 32px 0px 0px 0px;
+  margin: 27px 0px 0px 0px;
 }
 
 .nav-links li {
   font-size: 20px;
-  margin-right: 50px;
+  margin-right: 20px;
+  padding: 5px 10px;
+  text-align: center;
+  width: 120px;
+  border: 1Px solid black;
+  border-radius: 4px;
+  background-color: #f2e8f0;
 }
 
 /************* Cameras ************/
@@ -132,7 +140,7 @@ h1 {
 #results .card .camera-info .camera-name {
   font-size: 18px;
   color: white;
-  background-color: black;
+  background-color: #2B2929;
   padding: 10px;
   margin: -5px 0 20px 0;
 }
@@ -146,7 +154,7 @@ h1 {
 
 #results .card .camera-info .btn {
   color: white;
-  background-color: black;
+  background-color: #2B2929;
   padding: 10px;
   border-radius: 5px;
 }
@@ -160,7 +168,16 @@ footer {
 
 /************* Responsive ************/
 @media only screen and (max-width: 1005px) {
-  .textMenu {
+  .nav-links {
+    margin: 18px 10px 0 10px;
+  }
+  .nav-links li {
+    width: inherit;
+    margin-right: 30px;
+    font-size: 25px;
+    padding: 10px 15px;
+  }
+  .nav-links li .textMenu {
     display: none;
   }
 }
@@ -187,15 +204,19 @@ footer {
     cursor: pointer;
   }
   header .nav-links {
+    background: -webkit-gradient(linear, left top, right top, from(#f2e8f0), color-stop(62%, #f2e8f0), color-stop(73%, #aaa8ad), color-stop(95%, #444244), to(#2B2929));
+    background: linear-gradient(0.25turn, #f2e8f0 0%, #f2e8f0 62%, #aaa8ad 73%, #444244 95%, #2B2929 100%);
     top: 40px;
+    margin: 20px 0 0 0;
     position: absolute;
     left: 0;
+    opacity: 80%;
     -webkit-transform: translateY(-190%);
             transform: translateY(-190%);
-    -webkit-transition: -webkit-transform 0.3s ease-in;
-    transition: -webkit-transform 0.3s ease-in;
-    transition: transform 0.3s ease-in;
-    transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in;
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -206,27 +227,50 @@ footer {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    background-color: #F2E8F0;
     width: 100%;
     z-index: -1;
+    border-radius: 0 0 65% 35% / 0 0 42% 8%;
+    -webkit-box-shadow: 1px 1px 1px rgba(196, 196, 196, 0.541);
+            box-shadow: 1px 1px 1px rgba(196, 196, 196, 0.541);
   }
   header .nav-links li {
-    margin: 10px;
+    font-size: 20px;
+    width: 160px;
+    margin: 8px;
+    background-color: #444244;
+    padding: 8px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 2px 3px 1px rgba(117, 112, 112, 0.281);
+            box-shadow: 0 2px 3px 1px rgba(117, 112, 112, 0.281);
     opacity: 0;
-    -webkit-transition: opacity 0.15s ease-in;
-    transition: opacity 0.15s ease-in;
+    -webkit-transition: opacity 0.15s ease-out;
+    transition: opacity 0.15s ease-out;
   }
-  header .nav-links li .textMenu {
+  header .nav-links li .textMenu, header .nav-links li i {
     display: inherit;
+    color: white;
   }
   header .nav-active {
-    -webkit-transform: translateY(40%);
-            transform: translateY(40%);
+    height: 190px;
+    -webkit-transform: translateY(40px);
+            transform: translateY(40px);
+    opacity: 100%;
   }
-  header .nav-active li {
+  header .nav-active .li1 {
+    margin-top: 20px;
     opacity: 1;
-    -webkit-transition: opacity 0.7s ease-in 0.15s;
-    transition: opacity 0.7s ease-in 0.15s;
+    -webkit-transition: opacity 0.5s ease-out 0.20s;
+    transition: opacity 0.5s ease-out 0.20s;
+  }
+  header .nav-active .li2 {
+    opacity: 1;
+    -webkit-transition: opacity 0.5s ease-out 0.30s;
+    transition: opacity 0.5s ease-out 0.30s;
+  }
+  header .nav-active .li3 {
+    opacity: 1;
+    -webkit-transition: opacity 0.5s ease-out 0.40s;
+    transition: opacity 0.5s ease-out 0.40s;
   }
   /************* Cameras ************/
   #results .card {

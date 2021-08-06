@@ -3,7 +3,6 @@ const results = document.getElementById('results');
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
 
-
 let cameras;
 let searchTerm = '';
 
@@ -15,7 +14,6 @@ const fetchCameras = async() => {
 
 const showCameras = async() => {
 	await fetchCameras();
-
 results.innerHTML = (
 
     cameras
@@ -30,7 +28,7 @@ results.innerHTML = (
                   <h5 class="camera-name">${camera.name}</h5>
                     <p class="camera-description">${camera.description}</p>
                     <p class="camera-price">Prix: ${numberWithSpace(camera.price/100 + " €")}</p>
-                    <a href="#" class="btn">En savoir plus</a>
+                    <a href="/html/produit.html?${camera._id}" class="btn">En savoir plus</a>
                 </div>
               </div>
             
@@ -38,7 +36,6 @@ results.innerHTML = (
       )).join('')
   );
 }; 
-
 showCameras();
 
 // INPUT SETUP
@@ -54,9 +51,9 @@ function numberWithSpace(x){
 
 const navSlide = () => {
   burger.addEventListener('click', () => {
+
+    burger.classList.toggle('toggle');
     nav.classList.toggle('nav-active');
-  
-  burger.classList.toggle('toggle');
   });
   
   }

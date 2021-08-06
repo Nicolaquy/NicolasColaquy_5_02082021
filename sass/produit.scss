@@ -1,0 +1,52 @@
+.ficheProduit {
+    width: 80%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding-bottom: 20px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #F2E8F0;
+    img{
+        border-radius: 3px 3px 0 0;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .camera-name {
+        font-size: 18px;
+        color: white;
+        background-color: #2B2929;
+        padding: 20px;
+        margin: -5px 0 10px 0;
+    }
+    .camera-description {
+        margin: 20px;
+    }
+
+    .filtre {
+        margin-right: 10%;
+    }
+
+    .barFiltre {
+        height: 30px;
+        width: 50%;
+        margin: 5px;
+    }
+
+    .camera-price {
+        margin: 10px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .btn {
+        color: white;
+        background-color: #2B2929;
+        height: 30px;
+        width: 300px;
+        margin: 5px;
+        border-radius: 3px;
+        cursor: pointer;
+
+    }
+}

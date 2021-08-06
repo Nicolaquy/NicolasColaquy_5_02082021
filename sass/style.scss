@@ -11,21 +11,24 @@
 /************* Header ************/
 
 header, footer {
-    background-color: #F2E8F0;
+    background: linear-gradient(0.25turn, #f2e8f0 0%,#f2e8f0 62%,#aaa8ad 73%,#444244 95%, #2B2929 100%);
+
     position: relative;
 }
+
+
 
 header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 80px;
+    margin-bottom: 120px;
     z-index: 10;
     img {
         margin-top: 10px;
     }
     #search {
-        margin-top: 27px;
+        margin: 27px 5px 0px 5px;
         height: 30px;
         width: 45%;
     }
@@ -37,7 +40,7 @@ header {
         div {
             width: 25px;
             height: 3px;
-            background-color: black;
+            background-color: #fff;
             margin: 5px;
             transition: all 0.3s;
         }
@@ -57,15 +60,27 @@ header {
 }
 
 .nav-links {
+    border: none;
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 32px 0px 0px 0px;
-    li {
+    margin: 27px 0px 0px 0px;
+
+    li{
         font-size: 20px;
-        margin-right: 50px;
+        margin-right: 20px;
+        padding: 5px 10px;
+        text-align: center;
+        width: 120px;
+        border: 1Px solid black;
+        border-radius: 4px;
+        background-color: #f2e8f0;
+        
+        
+        
     }
 }
+
 
 /************* Cameras ************/
 
@@ -104,7 +119,7 @@ h1 {
             .camera-name {
                 font-size: 18px;
                 color: white;
-                background-color: black;
+                background-color: #2B2929;
                 padding: 10px;
                 margin: -5px 0 20px 0;
             }
@@ -118,13 +133,14 @@ h1 {
 
             .btn {
                 color: white;
-                background-color: black;
+                background-color: #2B2929;
                 padding: 10px;
                 border-radius: 5px;
-            }
+               
         }
 
     }
+}
 }
 
 /************* Footer ************/
@@ -142,11 +158,21 @@ footer {
 
 
 @media only screen and (max-width: 1005px) {
+    
+    .nav-links {
+        margin: 18px 10px 0 10px;
 
-    .textMenu {
-        display: none;
+        li {
+           width: inherit;
+           margin-right: 30px;
+           font-size: 25px;
+           padding: 10px 15px;
+    
+            .textMenu {
+                display: none;
+            }
+        }
     }
-
 }
 
 @media only screen and (max-width: 750px) {
@@ -174,36 +200,61 @@ footer {
         }
 
         .nav-links {
+            background: linear-gradient(0.25turn, #f2e8f0 0%,#f2e8f0 62%,#aaa8ad 73%,#444244 95%, #2B2929 100%);
             top: 40px;
+            margin: 20px 0 0 0;
             position: absolute;
             left: 0;
+            opacity: 80%;
 	        transform: translateY(-190%);
-	        transition: transform 0.3s ease-in;
+	        transition: transform 0.3s ease-in-out;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #F2E8F0;
             width: 100%;
             z-index: -1;
+            border-radius: 0 0 65% 35% / 0 0 42% 8% ;
+            box-shadow:  1px 1px 1px rgba(196, 196, 196, 0.541);
 
             li {
-                margin: 10px;
+                font-size: 20px;
+                width: 160px;
+                margin: 8px;
+                background-color: #444244;
+                padding: 8px;
+                border-radius: 5px;
+                box-shadow: 0 2px 3px 1px rgba(117, 112, 112, 0.281);
                 opacity: 0;
-                transition: opacity 0.15s ease-in;
-                .textMenu {
+                transition: opacity 0.15s ease-out;
+            
+                .textMenu, i {
                     display: inherit;
+                    color: white;
+                    
                 }
             }
             
         }
         .nav-active{
-            transform: translateY(40%);
+            height: 190px;
+            transform: translateY(40px);
+            opacity: 100%;
             
-                li {
-                    opacity: 1;
-                    transition: opacity 0.7s ease-in 0.15s;
-                }
-            
+            .li1 {
+                margin-top: 20px;
+                opacity: 1;
+                transition: opacity 0.5s ease-out 0.20s;
+            }
+            .li2 {
+                opacity: 1;
+                transition: opacity 0.5s ease-out 0.30s;
+            }
+                
+            .li3 {
+                opacity: 1;
+                transition: opacity 0.5s ease-out 0.40s;
+            }
+               
             }
 
     }
