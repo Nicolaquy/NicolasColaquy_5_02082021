@@ -28,7 +28,7 @@ results.innerHTML = (
                   <h5 class="camera-name">${camera.name}</h5>
                     <p class="camera-description">${camera.description}</p>
                     <p class="camera-price">Prix: ${numberWithSpace(camera.price/100 + " €")}</p>
-                    <a href="/html/produit.html?${camera._id}" class="btn">En savoir plus</a>
+                    <a href="/html/produit.html?id=${camera._id}" class="btn">En savoir plus</a>
                 </div>
               </div>
             

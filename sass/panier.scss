@@ -1,0 +1,109 @@
+h2 {
+    margin: 30px 80px;
+}
+ 
+ .cellule{
+    display: flex;
+    width: 85%;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px auto;
+
+}
+.titre {
+
+    background-color: #2B2929;
+    color: white;
+}
+
+td {
+
+    padding: 25px;
+}
+
+.vide {
+    text-align: center;
+
+    button {
+        height: 40px;
+        width: 200px;
+        background: #2B2929;
+        color: white;
+        border-radius: 4px;
+        justify-content: end;
+        cursor: pointer;
+    }
+}
+
+.footerPanier {
+    width: 85%;
+    margin: 20px auto;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgb(211, 211, 211);;
+
+    .total {
+        background-color: #2B2929;
+        color: white;
+        padding: 20px;
+    }
+
+    #total-commande {
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    button {
+        height: 40px;
+        width: 200px;
+        background: #6b6a6a;
+        color: white;
+        border-radius: 4px;
+        justify-content: end;
+        margin: 20px;
+        cursor: pointer;
+        i {
+            color: white;
+            font-size: 16px;
+            margin: auto 0 auto 10px;
+        }
+    }
+}
+
+.oblig {
+    margin: -20px 0 0 80px;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 20px auto;
+
+    .formSection {
+        font-size: 20px;
+       margin: 10px 20px;
+    
+        input {
+            height: 30px;
+            width: 340px;
+            padding: 2px 5px;
+            margin-top: 8px;
+            border: 1px solid rgb(211, 211, 211);
+            border-radius:4px;
+        }
+    }
+
+    button {
+        height: 40px;
+        width: 200px;
+        background: #2B2929;
+        color: white;
+        border-radius: 4px;
+        justify-content: end;
+        margin: 40px 0 0 100px;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,131 @@
+h2 {
+  margin: 30px 80px;
+}
+
+.cellule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 85%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px auto;
+}
+
+.titre {
+  background-color: #2B2929;
+  color: white;
+}
+
+td {
+  padding: 25px;
+}
+
+.vide {
+  text-align: center;
+}
+
+.vide button {
+  height: 40px;
+  width: 200px;
+  background: #2B2929;
+  color: white;
+  border-radius: 4px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  cursor: pointer;
+}
+
+.footerPanier {
+  width: 85%;
+  margin: 20px auto;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 1px solid lightgray;
+}
+
+.footerPanier .total {
+  background-color: #2B2929;
+  color: white;
+  padding: 20px;
+}
+
+.footerPanier #total-commande {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.footerPanier button {
+  height: 40px;
+  width: 200px;
+  background: #6b6a6a;
+  color: white;
+  border-radius: 4px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.footerPanier button i {
+  color: white;
+  font-size: 16px;
+  margin: auto 0 auto 10px;
+}
+
+.oblig {
+  margin: -20px 0 0 80px;
+}
+
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.form .formSection {
+  font-size: 20px;
+  margin: 10px 20px;
+}
+
+.form .formSection input {
+  height: 30px;
+  width: 340px;
+  padding: 2px 5px;
+  margin-top: 8px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
+
+.form button {
+  height: 40px;
+  width: 200px;
+  background: #2B2929;
+  color: white;
+  border-radius: 4px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  margin: 40px 0 0 100px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=panier.css.map */

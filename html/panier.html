@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/sass/css/style.css">
+    <link rel="stylesheet" href="/sass/css/panier.css">
     <script src="https://kit.fontawesome.com/315e628024.js" crossorigin="anonymous"></script>
     <title>Orinoco</title>
 </head>
@@ -15,7 +16,6 @@
             <ul class="nav-links">
                 <li class="li1"><a href="/index.html"><span class="textMenu">Accueil </span> <i class="fas fa-home"></i></a></li>
                 <li class="li2"><a href="panier.html"><span class="textMenu">Panier </span> <i class="fas fa-shopping-cart"></i></a></li>
-                <li class="li2"><a href="confirmation.html"><span class="textMenu">Compte </span><i class="fas fa-user"></i></a></li>
             </ul>
         </div>
 
@@ -26,8 +26,75 @@
         </div>
     </header>
 
-    <div id="content"></div>
+<h1>Finalisation de votre commande</h1>
 
+    <h2>Votre panier</h2>
+    
+
+    <table class="cellule titre">
+        <tr>
+            <td class="titre">Modèle</td>
+            <td class="titre">Objectif</td>
+            <td class="titre">Prix / unité</td>
+            <td class="titre">Quantité</td>
+            <td class="titre">Prix total</td>
+            <td class="titre">Supprimer</td>
+        </tr>
+        </table>
+    <div id="contentPanier">
+
+    </div>
+    <div class="footerPanier">
+            <div class="total">Total de votre commande</div>
+            <div id="total-commande" ></div>
+            <div><button id="sup-panier">Vider le panier <i class="fas fa-trash-alt"></i></button></div>
+    </div>
+
+        <h2>Vos coordonnées</h2>
+        <p class="oblig"><em>Tous les champs sont obligatoires</em></p>
+
+    <form action="" class="form">
+        <div class="formSection">
+            <label for="last-name">Nom</label><br>
+            <input type="text" id="last-name" pattern="^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{2,20}$" placeholder="Dupont" required>
+        </div>
+        <div class="formSection">
+            <label for="first-name">Prénom</label><br>
+            <input type="text" id="first-name" pattern="^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{2,20}$" placeholder="Jean" required>
+        </div>
+        <div class="formSection">
+            <label for="adress">Adresse</label><br>
+            <input type="text" id="adress" pattern="^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,40}$" placeholder="1 rue Victor Hugo" required>
+        </div>
+        <div class="formSection">
+            <label for="city">Ville</label><br>
+            <input type="text" id="city" pattern="^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{2,20}$" placeholder="Paris" required>
+        </div>    
+        <div class="formSection">
+            <label for="email">Adresse e-mail</label><br>
+            <input type="email" id="email" pattern="^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$" placeholder="jean.dupont@exemple.fr" required>
+        </div>
+        <button type="submit">Passer la commande</button>
+    </form>
+
+<!-- <div class="tableau">
+    <div class="line">
+        <div class="column">Modèle</div>
+        <div class="column">Objectif</div>
+        <div class="column">Prix / unité</div>
+        <div class="column">Quantité</div>
+        <div class="column">Prix total</div>
+        <div class="column">Supprimer</div>
+    </div>
+    <div class="line">
+        <div class="column">${produitLocalStorage[i].nomProduit}</div>
+        <div class="column">${produitLocalStorage[i].option}</div>
+        <div class="column">${produitLocalStorage[i].prixProduit} / unité</div>
+        <div class="column">${produitLocalStorage[i].quantiteProduit}</div>
+        <div class="column">${produitLocalStorage[i].prixProduit * produitLocalStorage[i].quantiteProduit} €</div>
+        <div class="column">X</div>
+    </div>
+</div> -->
     <footer>
         <p><i class="far fa-copyright"></i> Nicolas Colaquy</p>
     </footer>

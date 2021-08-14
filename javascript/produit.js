@@ -1,11 +1,9 @@
-const url_id = window.location.search;
-const id = url_id.slice(1);
-console.log(id);
 const resultats = document.getElementById('container-page-produit');
-let url = 'http://localhost:3000/api/cameras';
-console.log(url);
+let params = (new URL(document.location)).searchParams;
+let id = params.get('id');
+let url = 'http://localhost:3000/api/cameras'
 let url_produit = url + '/' + id;
-console.log(url_produit);
+
 
 const fetchCamera = async() => {
 	camera = await fetch(url_produit)
@@ -22,20 +20,68 @@ resultats.innerHTML = (
    <div class="camera-info">
     <h5 class="camera-name">${camera.name}</h5>
       <p class="camera-description">${camera.description}</p>
-      <label for="option-produit" class="filtre">Objectif</label>
+      <label for="option-produit" class="filtre">Lentille</label>
           <select name="option-produit" class= "barFiltre" id="option-produit">
-              <option value="option 1">Option 1</option>
-              <option value="option 2">Option 2</option>
           </select></br>
       <label for="quantite" class="filtre">Quantite</label>
       <input type="number" class = "barFiltre" name="quantite" id="quantite" min="1" max="10" value="1">
       <p class="camera-price">Prix: ${numberWithSpace(camera.price/100 + " €")} / unité</p>
       <button class="btn" onclick="window.location.href = '/index.html'">Nos autre produits</button>
-      <button class= "btn" type="submit">Ajouter au panier</button>
+      <button class= "btn" id="btn-envoyer" type="submit" name="btn-envoyer">Ajouter au panier</button>
   </div>
 </div> 
 `
 )
+
+
+let optionProduit = document.getElementById('option-produit');
+        let numberLenses = camera.lenses;
+        for (let i = 0; i < numberLenses.length; i++) {
+            optionLens = document.createElement('option');
+            optionProduit.appendChild(optionLens);
+            optionLens.textContent = camera.lenses[i];
+        }
+        console.log(numberLenses);
+
+const btn_panier = document.getElementById('btn-envoyer');
+    console.log(btn_panier);
+
+    btn_panier.addEventListener("click", (e) => {
+        e.preventDefault();
+        let quantite = document.getElementById('quantite');
+        let choix_produit = {
+            nomProduit: camera.name,
+            imgProduit: camera.imageUrl,
+            idProduit: id,
+            option: optionProduit.value,
+            prixProduit: camera.price / 100,
+            quantiteProduit: quantite.value,
+            prixTotalProduit: camera.price/100*quantite.value
+
+        }
+    console.log(choix_produit);
+
+    // Local Storage
+
+let produitLocalStorage = JSON.parse(localStorage.getItem('panier'));
+const ajoutLocalStorage =  () => {
+    produitLocalStorage.push(choix_produit)
+    localStorage.setItem('panier', JSON.stringify(produitLocalStorage))
+    alert("Votre article a bien été ajouté au panier");
+};
+
+
+if(produitLocalStorage){
+    ajoutLocalStorage();
+
+} else{
+    produitLocalStorage = [];
+    ajoutLocalStorage();
+    
+}
+
+    })
+
 }
 
 showCamera();
@@ -44,3 +90,4 @@ showCamera();
 function numberWithSpace(x){
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 }
+
