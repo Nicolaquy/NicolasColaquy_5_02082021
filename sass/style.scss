@@ -4,14 +4,14 @@
     list-style-type: none;
     text-decoration: none;
     color: black;
-    
+    box-sizing: border-box;
 }
 
 
 /************* Header ************/
 
 header, footer {
-    background: linear-gradient(0.25turn, #f2e8f0 0%,#f2e8f0 62%,#aaa8ad 73%,#444244 95%, #2B2929 100%);
+    background: linear-gradient(0.25turn, #f2e8f0 62%,#aaa8ad 73%,#444244 95%, #2B2929 100%);
 
     position: relative;
 }

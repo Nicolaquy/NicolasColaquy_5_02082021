@@ -26,6 +26,16 @@ const navSlide = () => {
 console.log(produitLocalStorage);
       if(produitLocalStorage === null) {
         contentPanier.innerHTML = `
+        <table class="tableau">
+        <tr class="titre">
+            <th class="titre">Modèle</th>
+            <th class="titre">Lentille</th>
+            <th class="titre">Prix / unité</th>
+            <th class="titre">Quantité</th>
+            <th class="titre">Prix total</th>
+            <th class="titre">Supprimer</th>
+        </tr>
+        </table>
         <div class="vide">
           <h2>Votre panier est vide</h2>
           <button class="btn" onclick="window.location.href = '/index.html'">Ajouter des articles</button>
@@ -35,24 +45,37 @@ console.log(produitLocalStorage);
       } else {
         let structurePanier = [];
 
+        let headerPanier = `
+        <table class="tableau">
+        <tr class="titre">
+            <th class="titre">Modèle</th>
+            <th class="titre">Lentille</th>
+            <th class="titre">Prix / unité</th>
+            <th class="titre">Quantité</th>
+            <th class="titre">Prix total</th>
+            <th class="titre">Supprimer</th>
+        </tr>
+         `;
+
         for(i=0; i < produitLocalStorage.length; i++){
           
           structurePanier += `
-          <table class="cellule">
+          
+          
         <tr>
             <td>${produitLocalStorage[i].nomProduit}</td>
             <td>${produitLocalStorage[i].option}</td>
-            <td>${produitLocalStorage[i].prixProduit} €</td>
+            <td>${numberWithSpace(produitLocalStorage[i].prixProduit)} €</td>
             <td>${produitLocalStorage[i].quantiteProduit}</td>
-            <td>${produitLocalStorage[i].prixTotalProduit} €</td>
+            <td>${numberWithSpace(produitLocalStorage[i].prixTotalProduit)} €</td>
             <td><button class="btn-suprimmer"><i class="fas fa-trash-alt"></i></button></td>
         </tr>
-    </table>
+    
         `
         ;
         };
         
-          contentPanier.innerHTML = structurePanier;
+          contentPanier.innerHTML = headerPanier + structurePanier + '</table>';
         
       }
 
@@ -64,7 +87,7 @@ console.log(produitLocalStorage);
         prixTotal = calculTotalPanier.reduce(reducer);
         totalCommande.innerHTML = (
           ` 
-          ${prixTotal} €
+          ${numberWithSpace(prixTotal)} €
           `
         )
 
@@ -89,3 +112,8 @@ console.log(produitLocalStorage);
       })
     }
     deleteAll();
+
+
+    function numberWithSpace(x){
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    }

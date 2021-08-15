@@ -4,12 +4,14 @@
   list-style-type: none;
   text-decoration: none;
   color: black;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 /************* Header ************/
 header, footer {
-  background: -webkit-gradient(linear, left top, right top, from(#f2e8f0), color-stop(62%, #f2e8f0), color-stop(73%, #aaa8ad), color-stop(95%, #444244), to(#2B2929));
-  background: linear-gradient(0.25turn, #f2e8f0 0%, #f2e8f0 62%, #aaa8ad 73%, #444244 95%, #2B2929 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(62%, #f2e8f0), color-stop(73%, #aaa8ad), color-stop(95%, #444244), to(#2B2929));
+  background: linear-gradient(0.25turn, #f2e8f0 62%, #aaa8ad 73%, #444244 95%, #2B2929 100%);
   position: relative;
 }
 
