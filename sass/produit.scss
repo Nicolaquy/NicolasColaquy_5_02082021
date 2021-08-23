@@ -1,4 +1,5 @@
 .ficheProduit {
+    position: relative;
     width: 80%;
     max-width: 900px;
     margin: 40px auto;
@@ -24,13 +25,49 @@
     }
 
     .filtre {
-        margin-right: 10%;
+        margin-right: 10px;
     }
 
     .barFiltre {
         height: 30px;
         width: 50%;
         margin: 5px;
+    }
+
+    .quantite {
+        height: 30px;
+        width: 40px;
+        margin-left: 30px;
+        background: transparent;
+        border: none;
+        font-size: 20px;
+        -moz-appearance:textfield; 
+        outline-style: none;      
+    }
+
+    input[type=number]::-webkit-outer-spin-button,
+    input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    }
+
+   
+    button {
+        border: none;
+        cursor: pointer;
+        i {
+            font-size: 25px;
+            position: relative;
+            top: 3px;
+            color: #2B2929;
+            transition: 50ms ease-in-out;
+        }
+    }
+
+    button:active {
+        i {
+            transform: scale(1.2);
+            color: #e6c976;
+        }
     }
 
     .camera-price {
@@ -47,6 +84,10 @@
         margin: 5px;
         border-radius: 3px;
         cursor: pointer;
-
+        transition: 300ms ease-in-out;
+    }
+    .btn:hover {
+        background-color: #e6c976;
+        color: black;
     }
 }

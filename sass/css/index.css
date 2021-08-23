@@ -1,0 +1,102 @@
+h1 {
+  margin: 100px auto 50px auto;
+  font-size: 40px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+#results {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#results .card {
+  background-color: #F2E8F0;
+  margin: 20px 20px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 3px 1px rgba(196, 196, 196, 0.541);
+          box-shadow: 0 2px 3px 1px rgba(196, 196, 196, 0.541);
+  height: 460px;
+  width: 300px;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 400ms ease;
+  transition: -webkit-transform 400ms ease;
+  transition: transform 400ms ease;
+  transition: transform 400ms ease, -webkit-transform 400ms ease;
+}
+
+#results .card .camera-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 5px 5px 0 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: -webkit-filter 300ms ease;
+  transition: -webkit-filter 300ms ease;
+  transition: filter 300ms ease;
+  transition: filter 300ms ease, -webkit-filter 300ms ease;
+}
+
+#results .card .camera-info {
+  text-align: center;
+}
+
+#results .card .camera-info .camera-name {
+  font-size: 18px;
+  color: white;
+  background-color: #2B2929;
+  padding: 10px;
+  margin: -5px 0 20px 0;
+}
+
+#results .card .camera-info .camera-price {
+  font-size: 20px;
+  margin: 10px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+#results .card .camera-info .btn {
+  color: white;
+  background-color: #444244;
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+}
+
+#results .card .camera-info .btn:hover {
+  background-color: #2B2929;
+  -webkit-box-shadow: 3px 3px 3px rgba(196, 196, 196, 0.541);
+          box-shadow: 3px 3px 3px rgba(196, 196, 196, 0.541);
+}
+
+#results .card:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+
+#results .card:hover .camera-image {
+  -webkit-filter: brightness(108%);
+          filter: brightness(108%);
+}
+
+@media only screen and (max-width: 750px) {
+  /************* Cameras ************/
+  #results .card {
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+}
+/*# sourceMappingURL=index.css.map */

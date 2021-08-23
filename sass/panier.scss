@@ -3,39 +3,81 @@ h2 {
 }
  
  .tableau{
-    width: 85%;
+    width: 95%;
     align-items: center;
     margin: 10px auto;
     font-size: 18px;
     border-collapse: collapse;
 
-}
-.titre {
-    background-color: #2B2929;
-    color: white;
-    padding: 25px;
-    
-}
-
-tr:nth-child(odd) {
-    background-color: #f2e8f0;
-  }
-
-td  {
-    text-align: center;
-    padding: 15px 25px;
-
-
-    button {
-        font-size: 16px;
+    .titre {
         background-color: #2B2929;
-        border: 1px solid transparent;
-        padding: 6px 8px;
-        border-radius: 5px;
-        cursor: pointer;
+        color: white;
+        padding: 25px;
+        
+    }
+
+    .titreSup {
+        color: white;
+    }
+    
+    .modele {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+    
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin: auto 20px auto -10px;
+        }
+    
+        .nomProduit {
+            font-size: 20px;
+            font-weight: 800;
+        }
+    
+        .lentille {
+            font-size: 16px;
+        }
+        
+    }
+
+    .quantiteArticle {
+        display: none;
+    }
+    
+    tr:nth-child(odd) {
+        background-color: #f2e8f0;
+      }
+    
+    td  {
+        text-align: center;
+        padding: 15px 25px;
+    }
+
+    .sup {
+            
+        button {
+            font-size: 16px;
+            background-color: #2B2929;
+            border: 1px solid transparent;
+            padding: 6px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 300ms ease-in-out;
+        }
+        button:hover {
+            background-color: #e6c976;
+            transform: scale(1.05);
+            i {
+                color: black;
+            }
+        }
 
         i {
             color: white;
+            transition: 300ms ease-in-out;
         }
     }
 }
@@ -54,8 +96,9 @@ td  {
     }
 }
 
+
 .footerPanier {
-    width: 85%;
+    width: 95%;
     margin: 20px auto;
     font-size: 20px;
     display: flex;
@@ -83,12 +126,18 @@ td  {
         justify-content: end;
         margin: 20px;
         cursor: pointer;
+        transition: 300ms ease-in-out;
         i {
             color: white;
             font-size: 16px;
             margin: auto 0 auto 10px;
         }
     }
+    button:hover, i:hover {
+        background-color: #2B2929;
+        
+    }
+
 }
 
 .oblig {
@@ -113,16 +162,92 @@ td  {
             border: 1px solid rgb(211, 211, 211);
             border-radius:4px;
         }
+
+        ::placeholder {
+            color: rgb(167, 167, 167);
+        }
+        input:not(:placeholder-shown) {
+            border: 2px solid red;
+        }
+
+        input:valid {
+            border: 2px solid rgb(1, 204, 1);
+        }
+    }
+
+    .erreur {
+        font-size: 16px;
+        color: red;
     }
 
     button {
         height: 40px;
         width: 200px;
         background: #2B2929;
+        font-size: 14px;
         color: white;
         border-radius: 4px;
         justify-content: end;
         margin: 40px 0 0 100px;
         cursor: pointer;
+        transition: 400ms ease-in-out;
+
+    }
+
+    button:hover {
+        color: black;
+        transform: scale(1.1);
+        background-color: #e6c976;
+    }
+}
+
+
+@media only screen and (max-width: 690px) {
+    .tableau {
+
+        width: 100%;
+
+        img {
+            display: none;
+        }
+
+        .quantite {
+            display: none;
+        }
+
+        .quantiteArticle {
+            display: inherit;
+            position: relative;
+            left: 60px;
+            font-size: 14px;
+        }
+
+        .sup {
+            padding: 25px 10px 25px 0;
+        }
+        .titre {
+                .titreSup {
+                    display: none;
+                }
+
+        }
+       
+    }
+
+    .footerPanier {
+        width: 100%;
+        position: relative;
+
+        #sup-panier {
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .formulaire {
+        margin-top: 100px;
+       
     }
 }

@@ -3,7 +3,7 @@ h2 {
 }
 
 .tableau {
-  width: 85%;
+  width: 95%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -12,32 +12,82 @@ h2 {
   border-collapse: collapse;
 }
 
-.titre {
+.tableau .titre {
   background-color: #2B2929;
   color: white;
   padding: 25px;
 }
 
-tr:nth-child(odd) {
+.tableau .titreSup {
+  color: white;
+}
+
+.tableau .modele {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-align: left;
+}
+
+.tableau .modele img {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: auto 20px auto -10px;
+}
+
+.tableau .modele .nomProduit {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.tableau .modele .lentille {
+  font-size: 16px;
+}
+
+.tableau .quantiteArticle {
+  display: none;
+}
+
+.tableau tr:nth-child(odd) {
   background-color: #f2e8f0;
 }
 
-td {
+.tableau td {
   text-align: center;
   padding: 15px 25px;
 }
 
-td button {
+.tableau .sup button {
   font-size: 16px;
   background-color: #2B2929;
   border: 1px solid transparent;
   padding: 6px 8px;
   border-radius: 5px;
   cursor: pointer;
+  -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
 }
 
-td button i {
+.tableau .sup button:hover {
+  background-color: #e6c976;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.tableau .sup button:hover i {
+  color: black;
+}
+
+.tableau .sup i {
   color: white;
+  -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
 }
 
 .vide {
@@ -57,7 +107,7 @@ td button i {
 }
 
 .footerPanier {
-  width: 85%;
+  width: 95%;
   margin: 20px auto;
   font-size: 20px;
   display: -webkit-box;
@@ -94,12 +144,18 @@ td button i {
           justify-content: end;
   margin: 20px;
   cursor: pointer;
+  -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
 }
 
 .footerPanier button i {
   color: white;
   font-size: 16px;
   margin: auto 0 auto 10px;
+}
+
+.footerPanier button:hover, .footerPanier i:hover {
+  background-color: #2B2929;
 }
 
 .oblig {
@@ -130,10 +186,40 @@ td button i {
   border-radius: 4px;
 }
 
+.form .formSection ::-webkit-input-placeholder {
+  color: #a7a7a7;
+}
+
+.form .formSection :-ms-input-placeholder {
+  color: #a7a7a7;
+}
+
+.form .formSection ::-ms-input-placeholder {
+  color: #a7a7a7;
+}
+
+.form .formSection ::placeholder {
+  color: #a7a7a7;
+}
+
+.form .formSection input:not(:placeholder-shown) {
+  border: 2px solid red;
+}
+
+.form .formSection input:valid {
+  border: 2px solid #01cc01;
+}
+
+.form .erreur {
+  font-size: 16px;
+  color: red;
+}
+
 .form button {
   height: 40px;
   width: 200px;
   background: #2B2929;
+  font-size: 14px;
   color: white;
   border-radius: 4px;
   -webkit-box-pack: end;
@@ -141,5 +227,52 @@ td button i {
           justify-content: end;
   margin: 40px 0 0 100px;
   cursor: pointer;
+  -webkit-transition: 400ms ease-in-out;
+  transition: 400ms ease-in-out;
+}
+
+.form button:hover {
+  color: black;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  background-color: #e6c976;
+}
+
+@media only screen and (max-width: 690px) {
+  .tableau {
+    width: 100%;
+  }
+  .tableau img {
+    display: none;
+  }
+  .tableau .quantite {
+    display: none;
+  }
+  .tableau .quantiteArticle {
+    display: inherit;
+    position: relative;
+    left: 60px;
+    font-size: 14px;
+  }
+  .tableau .sup {
+    padding: 25px 10px 25px 0;
+  }
+  .tableau .titre .titreSup {
+    display: none;
+  }
+  .footerPanier {
+    width: 100%;
+    position: relative;
+  }
+  .footerPanier #sup-panier {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  .formulaire {
+    margin-top: 100px;
+  }
 }
 /*# sourceMappingURL=panier.css.map */

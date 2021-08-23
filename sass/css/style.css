@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -6,6 +7,7 @@
   color: black;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: 'Playfair Display', serif;
 }
 
 /************* Header ************/
@@ -92,73 +94,16 @@ header .burger div {
   border: 1Px solid black;
   border-radius: 4px;
   background-color: #f2e8f0;
+  -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
 }
 
-/************* Cameras ************/
-h1 {
-  margin: 100px auto 50px auto;
-  font-size: 40px;
-  text-align: center;
-  padding: 0 20px;
-}
-
-#results {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-#results .card {
-  background-color: #F2E8F0;
-  margin: 20px 20px;
-  border-radius: 5px;
-  -webkit-box-shadow: 0 2px 3px 1px rgba(196, 196, 196, 0.541);
-          box-shadow: 0 2px 3px 1px rgba(196, 196, 196, 0.541);
-  height: 420px;
-  width: 300px;
-}
-
-#results .card .camera-image {
-  width: 100%;
-  height: 200px;
-  border-radius: 5px 5px 0 0;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-#results .card .camera-info {
-  text-align: center;
-}
-
-#results .card .camera-info .camera-name {
-  font-size: 18px;
-  color: white;
+.nav-links li:hover {
   background-color: #2B2929;
-  padding: 10px;
-  margin: -5px 0 20px 0;
 }
 
-#results .card .camera-info .camera-price {
-  font-size: 20px;
-  margin: 10px;
-  font-weight: 600;
-  margin-bottom: 25px;
-}
-
-#results .card .camera-info .btn {
+.nav-links li:hover span, .nav-links li:hover i {
   color: white;
-  background-color: #2B2929;
-  padding: 10px;
-  border-radius: 5px;
 }
 
 /************* Footer ************/
@@ -273,12 +218,6 @@ footer {
     opacity: 1;
     -webkit-transition: opacity 0.5s ease-out 0.40s;
     transition: opacity 0.5s ease-out 0.40s;
-  }
-  /************* Cameras ************/
-  #results .card {
-    width: 80%;
-    max-width: 400px;
-    margin: 20px auto;
   }
 }
 /*# sourceMappingURL=style.css.map */
