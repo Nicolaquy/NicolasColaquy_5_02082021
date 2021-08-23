@@ -66,41 +66,53 @@ function addIdProducts(produitLocalStorage) {
 
 // Mise en place des boutons pour supprimer les articles individuellement 
  
-function deleteCamera() {
-  let btn_sup = document.querySelectorAll(".btn-suprimmer");
-  let iSup = document.querySelectorAll(".iSup");
-  for (x = 0; x < btn_sup.length; x++) {
-    btn_sup[x].setAttribute("id",x);
-    iSup[x].setAttribute("id",x);
-    btn_sup[x].addEventListener("click", (e) => {
-      e.preventDefault
-      let idSup = e.target.attributes.id.nodeValue;
-      produitLocalStorage.splice(idSup, 1)
-      localStorage.setItem("products", JSON.stringify(produitLocalStorage));
-        if (produitLocalStorage === null || produitLocalStorage == 0){
-          alert("Votre panier est maintenant vide");
-          window.location.reload();
-        }else{
-        alert("Votre article a bien été retirer du panier");
-        window.location.reload();
+        function deleteCamera() {
+          let btn_sup = document.querySelectorAll(".btn-suprimmer");
+          let iSup = document.querySelectorAll(".iSup");
+          for (x = 0; x < btn_sup.length; x++) {
+            btn_sup[x].setAttribute("id",x);
+            iSup[x].setAttribute("id",x);
+            btn_sup[x].addEventListener("click", (e) => {
+              e.preventDefault
+              let idSup = e.target.attributes.id.nodeValue;
+              produitLocalStorage.splice(idSup, 1)
+              localStorage.setItem("products", JSON.stringify(produitLocalStorage));
+                if (produitLocalStorage === null || produitLocalStorage == 0){
+                  alert("Votre panier est maintenant vide");
+                  window.location.reload();
+                }else{
+                alert("Votre article a bien été retirer du panier");
+                window.location.reload();
+                }
+            })
+          }
         }
-    })
-  }
-}
-deleteCamera();
+        deleteCamera();
 
 
 // Mise en place du bouton pour effacer l'ensemble du panier
-function deleteAll() {
-sup_panier.addEventListener("click", (e) => {
-  e.preventDefault();
-  localStorage.clear();
-  alert("Votre panier a été vidé");
-  window.location.reload();
-})
-}
-deleteAll();
+        function deleteAll() {
+        sup_panier.addEventListener("click", (e) => {
+          e.preventDefault();
+          localStorage.clear();
+          alert("Votre panier a été vidé");
+          window.location.reload();
+        })
+        }
+        deleteAll();
 
+// Calcul du total du panier
+let calculTotalPanier = []; 
+for (j = 0; j < produitLocalStorage.length; j++) {
+    let prixPanier = produitLocalStorage[j].prixTotalProduit;
+    calculTotalPanier.push(prixPanier);
+}
+prixTotal = calculTotalPanier.reduce(reducer);
+totalCommande.innerHTML = (
+  ` 
+  ${numberWithSpace(prixTotal)} €
+  `
+)
 
 // Affichage du formulaire (si panier non vide)
           contentForm.innerHTML = `
@@ -135,22 +147,6 @@ deleteAll();
           `
       }
 
-
-// Calcul du total du panier
-      let calculTotalPanier = []; 
-        for (j = 0; j < produitLocalStorage.length; j++) {
-            let prixPanier = produitLocalStorage[j].prixTotalProduit;
-            calculTotalPanier.push(prixPanier);
-        }
-        prixTotal = calculTotalPanier.reduce(reducer);
-        totalCommande.innerHTML = (
-          ` 
-          ${numberWithSpace(prixTotal)} €
-          `
-        )
-
-
-        
 
 // Envoie du formulaire au local storage 
 
