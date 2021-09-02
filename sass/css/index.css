@@ -1,3 +1,7 @@
+body {
+  background-color: #f3f3f3;
+}
+
 h1 {
   margin: 100px auto 50px auto;
   font-size: 40px;
@@ -21,7 +25,7 @@ h1 {
 }
 
 #results .card {
-  background-color: #F2E8F0;
+  background-color: white;
   margin: 20px 20px;
   border-radius: 5px;
   -webkit-box-shadow: 0 2px 3px 1px rgba(196, 196, 196, 0.541);
@@ -89,6 +93,25 @@ h1 {
 #results .card:hover .camera-image {
   -webkit-filter: brightness(108%);
           filter: brightness(108%);
+}
+
+#results .vide {
+  text-align: center;
+  font-size: 18px;
+  margin: 10px 20px 40px 20px;
+}
+
+#results .vide .oops {
+  width: 300px;
+  border-radius: 150px;
+  -webkit-box-shadow: 3px 3px 3px rgba(196, 196, 196, 0.541);
+          box-shadow: 3px 3px 3px rgba(196, 196, 196, 0.541);
+}
+
+#results .vide .oups {
+  font-size: 26px;
+  font-weight: 900;
+  font-style: italic;
 }
 
 @media only screen and (max-width: 750px) {

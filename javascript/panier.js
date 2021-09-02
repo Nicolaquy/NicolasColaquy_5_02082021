@@ -4,11 +4,8 @@ const totalCommande = document.getElementById("total-commande");
 let prixTotal;
 const sup_panier = document.getElementById('sup-panier')
 const reducer = (accumulator, currentValue) => accumulator + currentValue;    
-let products = [];
+let idProducts = [];
 
-function addIdProducts(produitLocalStorage) {
-  products.push(produitLocalStorage[i].idProduit);
-}
 //Mise en place de l'affichage du panier
     const showPanier = async() => {
       let produitLocalStorage = JSON.parse(localStorage.getItem('products'));
@@ -47,7 +44,18 @@ function addIdProducts(produitLocalStorage) {
          `;
 
         for(i=0; i < produitLocalStorage.length; i++){
-          addIdProducts(produitLocalStorage);
+          let idProduit = produitLocalStorage[i].idProduit;
+          let quantityProduct = produitLocalStorage[i].quantiteProduit;
+          console.log(idProduit);
+          console.log(quantityProduct);
+          
+            for(j=0; j < quantityProduct; j++){
+              idProducts.push(idProduit);
+            }
+          
+          
+          localStorage.setItem("idProducts", JSON.stringify(idProducts));
+          console.log(idProducts);
           structurePanier += `
                
         <tr id="${produitLocalStorage[i].idProduit} : ${produitLocalStorage[i].option}">
@@ -102,17 +110,17 @@ function addIdProducts(produitLocalStorage) {
         deleteAll();
 
 // Calcul du total du panier
-let calculTotalPanier = []; 
-for (j = 0; j < produitLocalStorage.length; j++) {
-    let prixPanier = produitLocalStorage[j].prixTotalProduit;
-    calculTotalPanier.push(prixPanier);
-}
-prixTotal = calculTotalPanier.reduce(reducer);
-totalCommande.innerHTML = (
-  ` 
-  ${numberWithSpace(prixTotal)} €
-  `
-)
+        let calculTotalPanier = []; 
+        for (j = 0; j < produitLocalStorage.length; j++) {
+            let prixPanier = produitLocalStorage[j].prixTotalProduit;
+            calculTotalPanier.push(prixPanier);
+        }
+        prixTotal = calculTotalPanier.reduce(reducer);
+        totalCommande.innerHTML = (
+          ` 
+          ${numberWithSpace(prixTotal)} €
+          `
+        )
 
 // Affichage du formulaire (si panier non vide)
           contentForm.innerHTML = `
@@ -120,155 +128,32 @@ totalCommande.innerHTML = (
           <h2>Vos coordonnées</h2>
           <p class="oblig"><em>Tous les champs sont obligatoires</em></p>
   
-      <form action="" class="form">
-          <div class="formSection">
-              <label for="last-name">Nom</label><br>
-              <input type="text" id="last-name" pattern="^[a-zA-Z\s àâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{2,20}$" placeholder="Dupont" required><br><span id="erreurNom" class="erreur"></span>
-          </div>
-          <div class="formSection">
-              <label for="first-name">Prénom</label><br>
-              <input type="text" id="first-name" pattern="^[a-zA-Z\s àâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{2,20}$" placeholder="Jean" required><br><span id="erreurPrenom" class="erreur"></span>
-          </div>
-          <div class="formSection">
-              <label for="adress">Adresse</label><br>
-              <input type="text" id="adress" pattern="^[a-zA-Z0-9\s àâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,40}$" placeholder="1 rue Victor Hugo" required><br><span id="erreurAdresse" class="erreur"></span>
-          </div>
-          <div class="formSection">
-              <label for="city">Ville</label><br>
-              <input type="text" id="city" pattern="^[a-zA-Z\s àâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{2,20}$" placeholder="Paris" required><br><span id="erreurVille" class="erreur"></span>
-          </div>    
-          <div class="formSection">
-              <label for="email">Adresse e-mail</label><br>
-              <input type="email" id="email" pattern="^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$" placeholder="jean.dupont@exemple.fr" required><br><span id="erreurMail" class="erreur"></span>
-          </div>
-          <button type="submit" id="envoieFormulaire" name="envoieFormulaire">Passer la commande</button>
-      </form>
-      </section>
-          `
+          <form action="" class="form">
+              <div class="formSection">
+                  <label for="last-name">Nom</label><br>
+                  <input type="text" id="last-name" pattern="^[a-zA-Z\s àâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{2,20}$" placeholder="Dupont" required><br><span id="erreurNom" class="erreur"></span>
+              </div>
+              <div class="formSection">
+                  <label for="first-name">Prénom</label><br>
+                  <input type="text" id="first-name" pattern="^[a-zA-Z\s àâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{2,20}$" placeholder="Jean" required><br><span id="erreurPrenom" class="erreur"></span>
+              </div>
+              <div class="formSection">
+                  <label for="adress">Adresse</label><br>
+                  <input type="text" id="adress" pattern="^[a-zA-Z0-9\s àâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,40}$" placeholder="1 rue Victor Hugo" required><br><span id="erreurAdresse" class="erreur"></span>
+              </div>
+              <div class="formSection">
+                  <label for="city">Ville</label><br>
+                  <input type="text" id="city" pattern="^[a-zA-Z\s àâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{2,20}$" placeholder="Paris" required><br><span id="erreurVille" class="erreur"></span>
+              </div>    
+              <div class="formSection">
+                  <label for="email">Adresse e-mail</label><br>
+                  <input type="email" id="email" pattern="^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$" placeholder="jean.dupont@exemple.fr" required><br><span id="erreurMail" class="erreur"></span>
+              </div>
+              <button type="submit" id="envoieFormulaire" name="envoieFormulaire">Passer la commande</button>
+          </form>
+          </section>
+              `
       }
-
-
-// Envoie du formulaire au local storage 
-
-    const btnEnvoieFormulaire = document.getElementById('envoieFormulaire')
-
-    btnEnvoieFormulaire.addEventListener("click", (e) => {
-      e.preventDefault();
-      class formulaire{
-        constructor(){
-          this.lastName= document.getElementById('last-name').value;
-          this.firstName= document.getElementById('first-name').value;
-          this.adress= document.getElementById('adress').value;
-          this.city= document.getElementById('city').value;
-          this.email= document.getElementById('email').value;
-        }
-      }
-
-// Verification des informations du formulaire
-      const formulaireValues = new formulaire;
-      const regExNomPrenomVille = (value) => {
-        return /^[a-zA-Z\s àâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{2,20}$/.test(value)
-      }
-
-      function controleNom() {
-        const nom = formulaireValues.lastName;
-        if(regExNomPrenomVille(nom)){
-          document.getElementById('erreurNom').textContent = "";
-          return true;
-        }else{
-          document.getElementById('erreurNom').textContent = "Veuillez entrer uniquement des lettres (entre 2 et 20)";
-
-        }
-      };
-      function controlePrenom() {
-        const prenom = formulaireValues.firstName;
-        if(regExNomPrenomVille(prenom)){
-          document.getElementById('erreurPrenom').textContent = "";
-          return true;
-        }else{
-          document.getElementById('erreurPrenom').innerHTML = "Veuillez entrer uniquement des lettres (entre 2 et 20)";
-        }
-      };
-
-      function controleAdresse() {
-        const adresse = formulaireValues.adress;
-        if(/^[a-zA-Z0-9\s àâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,40}$/.test(adresse)){
-          document.getElementById('erreurAdresse').textContent = "";
-          return true;
-        }else{
-          document.getElementById('erreurAdresse').innerHTML = "Veuillez entrer uniquement des chiffres et des lettres (entre 3 et 40)";
-        }
-      };
-
-      function controleVille() {
-        const ville = formulaireValues.city;
-        if(regExNomPrenomVille(ville)){
-          document.getElementById('erreurVille').textContent = "";
-          return true;
-        }else{
-          document.getElementById('erreurVille').innerHTML = "Veuillez entrer uniquement des lettres (entre 2 et 20)";
-        }
-      };
-
-      function controleMail() {
-        const mail = formulaireValues.email;
-        if(/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/.test(mail)){
-          document.getElementById('erreurMail').textContent = "";
-          return true;
-        }else{
-          document.getElementById('erreurMail').innerHTML = "Veuillez renseigner une adresse mail valide <br> (ex: jean.dupont@exemple.fr)";
-        }
-      };
-      
-//Reponse a la verification du formulaire
-      if(controleNom() && controlePrenom() && controleAdresse() && controleVille() && controleMail()) {
-      localStorage.setItem("contact", JSON.stringify(formulaireValues))
-      alert('ok')
-      }else{
-        alert('pas bon')
-      };
-
-
-// Informations à envoyer a l'API
-      const aEnvoyer = {
-        produitLocalStorage, 
-        formulaireValues
-      }
-      console.log(aEnvoyer);
-
-
-
-// Envoie des infomations vers l'API (contact + products)
-      const promise01 = fetch("http://localhost:3000/api/cameras/order", {
-        method: "POST",
-        body: JSON.stringify(aEnvoyer),
-        headers: {
-          "Content-Type" : "application/json"
-        },
-      });
-
-      promise01.then(async(response) => {
-        try {
-          console.log(response);
-          const contenu = await response.json();
-          console.log(contenu);
-        } catch(e){
-          console.log(e);
-        }
-      })
-
-      const promise02 = fetch("http://localhost:3000/api/cameras/order")
-      promise02.then(async (response) => {
-        try{
-          const donneeDuServeur = await response.json()
-          console.log(donneeDuServeur);
-        } catch(e){
-          console.log(e);
-        }
-      })
-
-    });
-
     };
   
     showPanier();

@@ -12,6 +12,7 @@ const fetchCamera = async() => {
 };
 
 // Mise en place de l'affichage de l'appareil photo sélectionné
+
 const showCamera = async() => {
 	await fetchCamera();
     
@@ -31,6 +32,7 @@ resultats.innerHTML = (
       <p class="camera-price">Prix: ${numberWithSpace(camera.price/100 + " €")} / unité</p>
       <button class="btn" onclick="window.location.href = '/index.html'">Nos autre produits</button>
       <button class= "btn" id="btn-envoyer" type="submit" name="btn-envoyer">Ajouter au panier</button>
+      <button class="btn panier" onclick="window.location.href = 'panier.html'">Voir mon panier</button>
   </div>
 </div> 
 `

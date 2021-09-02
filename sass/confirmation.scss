@@ -1,4 +1,163 @@
-#contentValidation {
+body {
+    background-color: rgb(243, 243, 243);
+}
+
+#contentConfirmation {
+    width: 80%;
+    margin: 0px auto 40px auto;
+    padding: 0 5px;
     text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px 1px rgba(196, 196, 196, 0.541);
+
+    h1 {
+        font-size: 24px;
+        padding: 30px 0;
+        background: #2B2929;
+        color: white;
+        margin: 0 -5px;
+        border-radius: 5px 5px 0 0;
+    }
+
+    #congrat img {
+        width: 60%;
+        min-width: 300px;
+        max-width: 700px;
+        border-radius: 50px;
+        margin: 40px auto;
+    }
+
+    .numCommande {
+        background-color: #2B2929;
+        color: white;
+        padding: 20px;
+        width: 80%;
+        margin: 0 auto 30px auto;
+    }
+
+    .idCommande {
+        font-weight: 900;
+        color: white;
+        font-size: 18px;
+    }
+
+    .adress {
+        margin: 10px auto;
+        font-size: 18px;
+        font-weight: 900;
+    }
+
+    .recap {
+        margin: 40px auto 20px auto;
+        text-decoration: underline;
+    }
+
+    .tableau{
+        width: 80%;
+        max-width: 800px;
+        align-items: center;
+        margin: 10px auto;
+        font-size: 18px;
+        border-collapse: collapse;
+        border: 1px solid #2B2929;
     
+        .titre {
+            background-color: #2B2929;
+            color: white;
+            padding: 10px 20px;
+            
+        }
+    
+        .modele {
+            display: flex;
+            flex-direction: row;
+            text-align: left;
+        
+            img {
+                width: 80px;
+                height: 80px;
+                object-fit: cover;
+                margin: auto 20px auto -10px;
+            }
+        
+            .nomProduit {
+                font-size: 20px;
+                font-weight: 800;
+            }
+        
+            .lentille {
+                font-size: 16px;
+            }
+            
+        }
+    
+         .quantiteArticle {
+            position: relative;
+            left: 100px;
+            bottom: 15px;
+            font-size: 14px;
+        } 
+        
+        tr:nth-child(odd) {
+            background-color: #f2e8f0;
+          }
+        
+        td  {
+            text-align: center;
+            padding: 15px 25px;
+        }
+    }
+
+    .totalCommande {
+        font-size: 20px;
+        margin: 40px;
+
+        .prixTotal {
+            margin-left: 20px;
+            font-size: 30px;
+            font-weight: 900;
+        }
+    }
+
+    .fin {
+        margin: 10px auto;
+    }
+
+    .sign {
+        font-size: 20px;
+        margin: 40px auto 0 auto;
+        padding-bottom: 50px;
+    }
+
+    .btn {
+        color: white;
+        background-color: #2B2929;
+        height: 40px;
+        width: 300px;
+        margin-bottom: 30px;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: 300ms ease-in-out;
+    }
+
+    .btn:hover {
+        background-color: #e6c976;
+        color: black;
+    }
+}
+
+
+@media only screen and (max-width: 690px) {
+    #contentConfirmation {
+        width: 95%;
+    .tableau {
+
+        width: 100%;
+
+        img {
+            display: none;
+        }
+    }
+    }
 }

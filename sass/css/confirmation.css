@@ -1,4 +1,169 @@
-#contentValidation {
+body {
+  background-color: #f3f3f3;
+}
+
+#contentConfirmation {
+  width: 80%;
+  margin: 0px auto 40px auto;
+  padding: 0 5px;
   text-align: center;
+  background-color: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 3px 1px rgba(196, 196, 196, 0.541);
+          box-shadow: 0 2px 3px 1px rgba(196, 196, 196, 0.541);
+}
+
+#contentConfirmation h1 {
+  font-size: 24px;
+  padding: 30px 0;
+  background: #2B2929;
+  color: white;
+  margin: 0 -5px;
+  border-radius: 5px 5px 0 0;
+}
+
+#contentConfirmation #congrat img {
+  width: 60%;
+  min-width: 300px;
+  max-width: 700px;
+  border-radius: 50px;
+  margin: 40px auto;
+}
+
+#contentConfirmation .numCommande {
+  background-color: #2B2929;
+  color: white;
+  padding: 20px;
+  width: 80%;
+  margin: 0 auto 30px auto;
+}
+
+#contentConfirmation .idCommande {
+  font-weight: 900;
+  color: white;
+  font-size: 18px;
+}
+
+#contentConfirmation .adress {
+  margin: 10px auto;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+#contentConfirmation .recap {
+  margin: 40px auto 20px auto;
+  text-decoration: underline;
+}
+
+#contentConfirmation .tableau {
+  width: 80%;
+  max-width: 800px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px auto;
+  font-size: 18px;
+  border-collapse: collapse;
+  border: 1px solid #2B2929;
+}
+
+#contentConfirmation .tableau .titre {
+  background-color: #2B2929;
+  color: white;
+  padding: 10px 20px;
+}
+
+#contentConfirmation .tableau .modele {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-align: left;
+}
+
+#contentConfirmation .tableau .modele img {
+  width: 80px;
+  height: 80px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: auto 20px auto -10px;
+}
+
+#contentConfirmation .tableau .modele .nomProduit {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+#contentConfirmation .tableau .modele .lentille {
+  font-size: 16px;
+}
+
+#contentConfirmation .tableau .quantiteArticle {
+  position: relative;
+  left: 100px;
+  bottom: 15px;
+  font-size: 14px;
+}
+
+#contentConfirmation .tableau tr:nth-child(odd) {
+  background-color: #f2e8f0;
+}
+
+#contentConfirmation .tableau td {
+  text-align: center;
+  padding: 15px 25px;
+}
+
+#contentConfirmation .totalCommande {
+  font-size: 20px;
+  margin: 40px;
+}
+
+#contentConfirmation .totalCommande .prixTotal {
+  margin-left: 20px;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+#contentConfirmation .fin {
+  margin: 10px auto;
+}
+
+#contentConfirmation .sign {
+  font-size: 20px;
+  margin: 40px auto 0 auto;
+  padding-bottom: 50px;
+}
+
+#contentConfirmation .btn {
+  color: white;
+  background-color: #2B2929;
+  height: 40px;
+  width: 300px;
+  margin-bottom: 30px;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+}
+
+#contentConfirmation .btn:hover {
+  background-color: #e6c976;
+  color: black;
+}
+
+@media only screen and (max-width: 690px) {
+  #contentConfirmation {
+    width: 95%;
+  }
+  #contentConfirmation .tableau {
+    width: 100%;
+  }
+  #contentConfirmation .tableau img {
+    display: none;
+  }
 }
 /*# sourceMappingURL=confirmation.css.map */

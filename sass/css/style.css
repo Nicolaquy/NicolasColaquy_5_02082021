@@ -12,8 +12,7 @@
 
 /************* Header ************/
 header, footer {
-  background: -webkit-gradient(linear, left top, right top, color-stop(62%, #f2e8f0), color-stop(73%, #aaa8ad), color-stop(95%, #444244), to(#2B2929));
-  background: linear-gradient(0.25turn, #f2e8f0 62%, #aaa8ad 73%, #444244 95%, #2B2929 100%);
+  background: #f2e8f0;
   position: relative;
 }
 
@@ -50,7 +49,7 @@ header .burger {
 header .burger div {
   width: 25px;
   height: 3px;
-  background-color: #fff;
+  background-color: #2B2929;
   margin: 5px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -91,19 +90,22 @@ header .burger div {
   padding: 5px 10px;
   text-align: center;
   width: 120px;
-  border: 1Px solid black;
   border-radius: 4px;
-  background-color: #f2e8f0;
+  background-color: #2B2929;
   -webkit-transition: 300ms ease-in-out;
   transition: 300ms ease-in-out;
 }
 
+.nav-links li span, .nav-links li i {
+  color: white;
+}
+
 .nav-links li:hover {
-  background-color: #2B2929;
+  background-color: #e6c976;
 }
 
 .nav-links li:hover span, .nav-links li:hover i {
-  color: white;
+  color: black;
 }
 
 /************* Footer ************/
@@ -151,8 +153,7 @@ footer {
     cursor: pointer;
   }
   header .nav-links {
-    background: -webkit-gradient(linear, left top, right top, from(#f2e8f0), color-stop(62%, #f2e8f0), color-stop(73%, #aaa8ad), color-stop(95%, #444244), to(#2B2929));
-    background: linear-gradient(0.25turn, #f2e8f0 0%, #f2e8f0 62%, #aaa8ad 73%, #444244 95%, #2B2929 100%);
+    background: #f2e8f0;
     top: 40px;
     margin: 20px 0 0 0;
     position: absolute;
@@ -196,6 +197,9 @@ footer {
   header .nav-links li .textMenu, header .nav-links li i {
     display: inherit;
     color: white;
+  }
+  header .nav-links li:hover .textMenu {
+    color: black;
   }
   header .nav-active {
     height: 190px;

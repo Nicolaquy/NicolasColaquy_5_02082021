@@ -7,6 +7,8 @@
   text-align: center;
   border-radius: 3px;
   background-color: #F2E8F0;
+  -webkit-box-shadow: 0 2px 3px 1px rgba(196, 196, 196, 0.541);
+          box-shadow: 0 2px 3px 1px rgba(196, 196, 196, 0.541);
 }
 
 .ficheProduit img {
@@ -92,8 +94,25 @@
   transition: 300ms ease-in-out;
 }
 
+.ficheProduit .panier {
+  background-color: #e6c976;
+  color: black;
+  width: 615px;
+  margin-top: 20px;
+}
+
 .ficheProduit .btn:hover {
   background-color: #e6c976;
   color: black;
+}
+
+.ficheProduit .panier:hover {
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 795px) {
+  .panier {
+    max-width: 300px;
+  }
 }
 /*# sourceMappingURL=produit.css.map */

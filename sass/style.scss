@@ -15,8 +15,7 @@
 /************* Header ************/
 
 header, footer {
-    background: linear-gradient(0.25turn, #f2e8f0 62%,#aaa8ad 73%,#444244 95%, #2B2929 100%);
-
+    background: #f2e8f0;
     position: relative;
 }
 
@@ -44,7 +43,7 @@ header {
         div {
             width: 25px;
             height: 3px;
-            background-color: #fff;
+            background-color: #2B2929;
             margin: 5px;
             transition: all 0.3s;
         }
@@ -76,17 +75,20 @@ header {
         padding: 5px 10px;
         text-align: center;
         width: 120px;
-        border: 1Px solid black;
         border-radius: 4px;
-        background-color: #f2e8f0;
-        transition: 300ms ease-in-out;     
+        background-color: #2B2929;
+        transition: 300ms ease-in-out;  
+        
+        span, i {
+            color: white;
+            }
     }
 
     li:hover {
-        background-color: #2B2929;
+        background-color: #e6c976;
 
         span, i {
-        color: white;
+        color: black;
         }
     }
 }
@@ -149,7 +151,7 @@ footer {
         }
 
         .nav-links {
-            background: linear-gradient(0.25turn, #f2e8f0 0%,#f2e8f0 62%,#aaa8ad 73%,#444244 95%, #2B2929 100%);
+            background: #f2e8f0;
             top: 40px;
             margin: 20px 0 0 0;
             position: absolute;
@@ -183,6 +185,11 @@ footer {
                 }
             }
             
+            li:hover {
+                .textMenu {
+                    color: black;
+                }
+            }
         }
         .nav-active{
             height: 190px;

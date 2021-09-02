@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(243, 243, 243);
+}
+
 h1 {
     margin: 100px auto 50px auto;
     font-size: 40px;
@@ -13,7 +17,7 @@ h1 {
     
 
     .card {
-        background-color: #F2E8F0;
+        background-color: white;
         margin: 20px 20px;
         border-radius: 5px;
         box-shadow: 0 2px 3px 1px rgba(196, 196, 196, 0.541);
@@ -71,6 +75,26 @@ h1 {
     
     .camera-image {
         filter: brightness(108%);
+    }
+}
+
+
+
+.vide {
+    text-align: center;
+    font-size: 18px;
+    margin: 10px 20px 40px 20px;
+
+    .oops {
+        width: 300px;
+        border-radius: 150px;
+        box-shadow:  3px 3px 3px rgba(196, 196, 196, 0.541);
+    }
+
+    .oups {
+        font-size: 26px;
+        font-weight: 900;
+        font-style: italic;
     }
 }
 }
