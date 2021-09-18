@@ -26,7 +26,7 @@ function validationForm(contact) {
         document.getElementById('erreurAdresse').textContent = "";
         if(regExNomPrenomVille(ville)){
           document.getElementById('erreurVille').textContent = "";
-          if(/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/.test(email)){
+          if(/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/.test(email) && (email.length > 2)){
             document.getElementById('erreurMail').textContent = "";
             return true;
           }else {
@@ -49,10 +49,9 @@ function validationForm(contact) {
     document.getElementById('erreurNom').textContent = "Veuillez entrer uniquement des lettres (entre 2 et 20)";
     return false;
   }
-
 }
 
-// Envoie vers l'API de l'ogjet contact et du tableau Produits
+// Fonction pour envoyer vers l'API l'objet contact et le tableau products
 
   async function postForm(aEnvoyer) {
     try {
@@ -69,14 +68,13 @@ function validationForm(contact) {
             localStorage.clear();
             document.location.href = "../html/confirmation.html"
     } catch(e) {
-      console.log(e);
-      alert("erreur")
+      alert("Erreur:" + e)
     }
 }
 
+// Envoie vers le session Storage des informations pour page confirmation
 function getOrderConfirmationId(responseId) {
   let orderId = responseId.orderId;
-  console.log(orderId);
   sessionStorage.setItem("orderId", orderId);
   sessionStorage.setItem("montantCommande", JSON.stringify(prixTotal));
   sessionStorage.setItem("contact", JSON.stringify(contact));
@@ -98,17 +96,16 @@ function validateForm() {
       city: document.getElementById('city').value,
       email: document.getElementById('email').value
     };
+
+// Récuperation tableau products
     let products = JSON.parse(localStorage.getItem('idProducts'));
-    console.log(products);
 
 // Envoie des informations au Back-end
     let aEnvoyer = {contact, products} ;
       if(validationForm(contact)){
-        console.log(aEnvoyer);
           postForm(aEnvoyer);
-          console.log("ok form");
       } else {
-          console.log("ko form");
+        alert("Veuillez bien remplir le formulaire comme indiqué")
       }
   })
 }

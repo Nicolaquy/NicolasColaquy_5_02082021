@@ -3,7 +3,6 @@ const results = document.getElementById('results');
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
 
-
 // BURGER
 
 const navSlide = () => {
@@ -12,11 +11,8 @@ const navSlide = () => {
     burger.classList.toggle('toggle');
     nav.classList.toggle('nav-active');
   });
-  
   }
-  
   navSlide();
-
 
 // Mise en place d'un espace tout les 3 chiffres
 function numberWithSpace(x){

@@ -25,7 +25,6 @@ const showConfirmation = async() => {
             <th class="titre">Prix / unité</th>
             <th class="titre prixTotal">Prix total</th>
         </tr>
-    
     `
 
     for(i=0; i < produitLocalStorage.length; i++){
@@ -33,7 +32,7 @@ const showConfirmation = async() => {
         recapCommande += `
             
         <tr class="ligne">
-            <td class="modele"><div><img src="${produitLocalStorage[i].imgProduit}" alt=""></div> <div><div class="nomProduit">${produitLocalStorage[i].nomProduit}</div><br><div class="lentille">${produitLocalStorage[i].option}<div class="quantiteArticle">x ${produitLocalStorage[i].quantiteProduit}</div></div></div></td>
+            <td class="modele"><div><img src="${produitLocalStorage[i].imgProduit}" alt="Image appareil photo"></div> <div><div class="nomProduit">${produitLocalStorage[i].nomProduit}</div><br><div class="lentille">${produitLocalStorage[i].option}<div class="quantiteArticle">x ${produitLocalStorage[i].quantiteProduit}</div></div></div></td>
             <td>${numberWithSpace(produitLocalStorage[i].prixProduit)} €</td>
             <td class="prixTotal">${numberWithSpace(produitLocalStorage[i].prixTotalProduit)} €</td>
         </tr>
@@ -47,19 +46,17 @@ const showConfirmation = async() => {
         <p class="fin">En vous souhaitant les meilleurs photos possible !</p>
         <p class="sign">L'equipe Orinoco</p>
         <button class="btn" onclick="window.location.href = '/index.html'">Retour à l'accueil</button>
-
         `
 
       confirmation.innerHTML = debutConfirmation + recapCommande + "</table>" + finConfirmation;
 
-       function photo(){
-          var x = document.getElementById("congrat")
-          x.innerHTML="<img src=\"../images/congrat-"+Math.floor((Math.random()*5)+1)+".gif\"/>"
-          console.log(x);
-      }
-      photo();
-  
+      photoCongrat();
     }
+
+function photoCongrat(){
+    let x = document.getElementById("congrat")
+    x.innerHTML="<img src=\"../images/congrat-"+Math.floor((Math.random()*5)+1)+".gif\"/>"
+};
 
 showConfirmation();
 

@@ -46,68 +46,26 @@ let idProducts = [];
         for(i=0; i < produitLocalStorage.length; i++){
           let idProduit = produitLocalStorage[i].idProduit;
           let quantityProduct = produitLocalStorage[i].quantiteProduit;
-          console.log(idProduit);
-          console.log(quantityProduct);
           
             for(j=0; j < quantityProduct; j++){
               idProducts.push(idProduit);
             }
           
-          
           localStorage.setItem("idProducts", JSON.stringify(idProducts));
-          console.log(idProducts);
           structurePanier += `
                
         <tr id="${produitLocalStorage[i].idProduit} : ${produitLocalStorage[i].option}">
-            <td class="modele"><div><img src="${produitLocalStorage[i].imgProduit}" alt=""></div> <div><div class="nomProduit">${produitLocalStorage[i].nomProduit}</div><br><div class="lentille">${produitLocalStorage[i].option}</div></div></td>
+            <td class="modele"><div><a href="/html/produit.html?id=${produitLocalStorage[i].idProduit}"><img src="${produitLocalStorage[i].imgProduit}" alt=""></a></div> <div><div class="nomProduit"><a href="/html/produit.html?id=${produitLocalStorage[i].idProduit}">${produitLocalStorage[i].nomProduit}</a></div><br><div class="lentille">${produitLocalStorage[i].option}</div></div></td>
             <td>${numberWithSpace(produitLocalStorage[i].prixProduit)} € <div class="quantiteArticle">x ${produitLocalStorage[i].quantiteProduit}</div></td>
             <td class="quantite">${produitLocalStorage[i].quantiteProduit}</td>
             <td class="prixTotal">${numberWithSpace(produitLocalStorage[i].prixTotalProduit)} €</td>
-            <td class="sup"><button class="btn-suprimmer"><i class="fas fa-trash-alt iSup"></i></button></td>
+            <td class="sup"><button aria-label="Supprimer" class="btn-suprimmer"><i class="fas fa-trash-alt iSup"></i></button></td>
         </tr>
     
         `
         };
         
           contentPanier.innerHTML = headerPanier + structurePanier + '</table>';
-
-
-// Mise en place des boutons pour supprimer les articles individuellement 
- 
-        function deleteCamera() {
-          let btn_sup = document.querySelectorAll(".btn-suprimmer");
-          let iSup = document.querySelectorAll(".iSup");
-          for (x = 0; x < btn_sup.length; x++) {
-            btn_sup[x].setAttribute("id",x);
-            iSup[x].setAttribute("id",x);
-            btn_sup[x].addEventListener("click", (e) => {
-              e.preventDefault
-              let idSup = e.target.attributes.id.nodeValue;
-              produitLocalStorage.splice(idSup, 1)
-              localStorage.setItem("products", JSON.stringify(produitLocalStorage));
-                if (produitLocalStorage === null || produitLocalStorage == 0){
-                  alert("Votre panier est maintenant vide");
-                  window.location.reload();
-                }else{
-                alert("Votre article a bien été retirer du panier");
-                window.location.reload();
-                }
-            })
-          }
-        }
-        deleteCamera();
-
-
-// Mise en place du bouton pour effacer l'ensemble du panier
-        function deleteAll() {
-        sup_panier.addEventListener("click", (e) => {
-          e.preventDefault();
-          localStorage.clear();
-          alert("Votre panier a été vidé");
-          window.location.reload();
-        })
-        }
-        deleteAll();
 
 // Calcul du total du panier
         let calculTotalPanier = []; 
@@ -121,6 +79,10 @@ let idProducts = [];
           ${numberWithSpace(prixTotal)} €
           `
         )
+
+// Appel des fonctions pour supprimer articles du panier
+deleteCamera();
+deleteAll();
 
 // Affichage du formulaire (si panier non vide)
           contentForm.innerHTML = `
@@ -155,6 +117,39 @@ let idProducts = [];
               `
       }
     };
+
+// Mise en place des boutons pour supprimer les articles individuellement 
+ 
+function deleteCamera() {
+  let btn_sup = document.querySelectorAll(".btn-suprimmer");
+  let iSup = document.querySelectorAll(".iSup");
+  for (x = 0; x < btn_sup.length; x++) {
+    btn_sup[x].setAttribute("id",x);
+    iSup[x].setAttribute("id",x);
+    btn_sup[x].addEventListener("click", (e) => {
+      e.preventDefault
+      let idSup = e.target.attributes.id.nodeValue;
+      produitLocalStorage.splice(idSup, 1)
+      localStorage.setItem("products", JSON.stringify(produitLocalStorage));
+        if (produitLocalStorage === null || produitLocalStorage == 0){
+          alert("Votre panier est maintenant vide");
+          window.location.reload();
+        }else{
+        alert("Votre article a bien été retirer du panier");
+        window.location.reload();
+        }
+    })
+  }
+};
+
+// Mise en place du bouton pour effacer l'ensemble du panier
+function deleteAll() {
+sup_panier.addEventListener("click", (e) => {
+  e.preventDefault();
+  localStorage.clear();
+  alert("Votre panier a été vidé");
+  window.location.reload();
+})
+};
   
     showPanier();
-

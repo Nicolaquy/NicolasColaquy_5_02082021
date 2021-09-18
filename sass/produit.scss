@@ -89,17 +89,18 @@
         cursor: pointer;
         transition: 300ms ease-in-out;
     }
-    .panier{
+    .ajoutPanier{
         background-color: #e6c976;
         color: black;
         width: 615px;
-        margin-top: 20px;
+        height: 40px;
+        margin-top: 10px;
     }
     .btn:hover {
         background-color: #e6c976;
         color: black;
     }
-    .panier:hover {
+    .ajoutPanier:hover {
         font-size: 16px;
     }
 }
@@ -107,7 +108,7 @@
 
 @media only screen and (max-width: 795px) {
 
-    .panier{
+    .ajoutPanier{
         max-width: 300px;
     } 
 }

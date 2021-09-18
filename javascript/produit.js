@@ -10,7 +10,6 @@ const fetchCamera = async() => {
 	camera = await fetch(url_produit)
     .then(res => res.json());
 };
-
 // Mise en place de l'affichage de l'appareil photo sélectionné
 
 const showCamera = async() => {
@@ -20,7 +19,7 @@ resultats.innerHTML = (
 
   ` 
   <div class="ficheProduit">
-  <img class="camera-image" src="${camera.imageUrl}" />
+  <img class="camera-image" src="${camera.imageUrl}" alt="Image appareil photo"/>
    <div class="camera-info">
     <h5 class="camera-name">${camera.name}</h5>
       <p class="camera-description">${camera.description}</p>
@@ -28,15 +27,16 @@ resultats.innerHTML = (
           <select name="option-produit" class= "barFiltre" id="option-produit">
           </select></br>
       <label for="quantite" class="filtre">Quantite</label>
-      <button class="boutonPM" onclick="down()"><i class="fas fa-caret-square-left"></i></button><input type="number" class ="quantite" name="quantite" id="quantite" min="1" max="10" value="1"><button class="boutonPM" onclick="up()"><i class="fas fa-caret-square-right"></i></button>
+      <button aria-label="Quantité moins" class="boutonPM" onclick="down()"><i class="fas fa-caret-square-left"></i></button><input type="number" class ="quantite" name="quantite" id="quantite" min="1" max="10" value="1"><button aria-label="Quantité plus" class="boutonPM" onclick="up()"><i class="fas fa-caret-square-right"></i></button>
       <p class="camera-price">Prix: ${numberWithSpace(camera.price/100 + " €")} / unité</p>
       <button class="btn" onclick="window.location.href = '/index.html'">Nos autre produits</button>
-      <button class= "btn" id="btn-envoyer" type="submit" name="btn-envoyer">Ajouter au panier</button>
-      <button class="btn panier" onclick="window.location.href = 'panier.html'">Voir mon panier</button>
+      <button class="btn" onclick="window.location.href = 'panier.html'">Voir mon panier</button>
+      <button class= "btn ajoutPanier" id="btn-envoyer" type="submit" name="btn-envoyer">Ajouter au panier</button>
+      
   </div>
 </div> 
 `
-)
+);
 
 // Mise en place du choix de la lentille
 let optionProduit = document.getElementById('option-produit');
@@ -46,8 +46,6 @@ let optionProduit = document.getElementById('option-produit');
             optionProduit.appendChild(optionLens);
             optionLens.textContent = camera.lenses[i];
         }
-        console.log(numberLenses);
-
 
 //Mise en place du bouton d'envoi au panier 
 const btn_panier = document.getElementById('btn-envoyer');
@@ -64,11 +62,6 @@ const btn_panier = document.getElementById('btn-envoyer');
             quantiteProduit: Number(quantite.value),
             prixTotalProduit: camera.price/100*quantite.value
         }
-
-        
-    console.log(choix_produit);
-
-
     
 //Envoi au Local Storage
 
@@ -85,14 +78,13 @@ if(produitLocalStorage){
     let calculTotalQuantity= [];
     let prixTotalProduit = choix_produit.prixTotalProduit;
     calculTotalQuantity.push(quantiteProduit);
-let productRef = choix_produit.idProduit + ":" + document.getElementById('option-produit').value;
-console.log(productRef);
-const filtreProduit = produitLocalStorage.filter(
+    let productRef = choix_produit.idProduit + ":" + document.getElementById('option-produit').value;
+    const filtreProduit = produitLocalStorage.filter(
     (el) => el.idProduit + ":" + el.option === productRef
     );
     let filtreProduitRef;
     let oldProduct;
-    for (let q = 0; q < filtreProduit.length; q++){
+    for (q = 0; q < filtreProduit.length; q++){
         filtreProduitRef = filtreProduit[q].idProduit + ":" + filtreProduit[q].option;
         filtreProduitQuantite = filtreProduit[q].quantiteProduit;
         oldProduct = filtreProduit[q].idProduit + ":" + filtreProduit[q].option};
@@ -119,7 +111,6 @@ const filtreProduit = produitLocalStorage.filter(
 
         }
 
-    
 //Si panier vide, création clef produit
 } else{
     produitLocalStorage = [];
@@ -147,4 +138,3 @@ function down() {
         quantite.value= parseInt(quantite.value)-1;
     }
 }
-

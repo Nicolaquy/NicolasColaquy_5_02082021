@@ -17,7 +17,7 @@ const showCameras = async() => {
     results.innerHTML = 
         `
         <div class="vide">
-         <img class="oops" src="/images/oops.gif" alt="">
+         <img class="oops" src="/images/oops.gif" alt="aucun produit">
          <p><span class="oups">Oups..</span><br> Nous n'avons pas ce produit en stock ou ne le proposons pas à la vente,<br>
          Ne vous en faites pas, nous avons une large game d'appareils photos pour vous satisfaire !</p>
         </div>
@@ -31,9 +31,9 @@ const showCameras = async() => {
               
                 <div class="card">
                 <a href = "/html/produit.html?id=${camera._id}">
-                  <img class="camera-image" src="${camera.imageUrl}" />
+                  <img class="camera-image" src="${camera.imageUrl}" alt="Image appareil photo" />
                   <div class="camera-info">
-                    <h5 class="camera-name">${camera.name}</h5>
+                    <h2 class="camera-name">${camera.name}</h2>
                       <p class="camera-description">${camera.description}</p>
                       <p class="camera-price">Prix: ${numberWithSpace(camera.price/100 + " €")}</p>
                       <a href="/html/produit.html?id=${camera._id}" class="btn">En savoir plus</a>
